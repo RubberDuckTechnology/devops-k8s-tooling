@@ -3,8 +3,41 @@ jenkins:
   - "JNLP4-connect"
   - "Ping"
   authorizationStrategy:
-    loggedInUsersCanDoAnything:
-      allowAnonymousRead: false
+    globalMatrix:
+      entries:
+      - user:
+          name: "adminzaka"
+          permissions:
+          - "Agent/Build"
+          - "Agent/Configure"
+          - "Agent/Connect"
+          - "Agent/Create"
+          - "Agent/Delete"
+          - "Agent/Disconnect"
+          - "Credentials/Create"
+          - "Credentials/Delete"
+          - "Credentials/ManageDomains"
+          - "Credentials/Update"
+          - "Credentials/View"
+          - "Job/Build"
+          - "Job/Cancel"
+          - "Job/Configure"
+          - "Job/Create"
+          - "Job/Delete"
+          - "Job/Discover"
+          - "Job/Move"
+          - "Job/Read"
+          - "Job/Workspace"
+          - "Overall/Administer"
+          - "Overall/Read"
+          - "Run/Delete"
+          - "Run/Replay"
+          - "Run/Update"
+          - "SCM/Tag"
+          - "View/Configure"
+          - "View/Create"
+          - "View/Delete"
+          - "View/Read"
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
