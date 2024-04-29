@@ -10,3 +10,14 @@
 
 - https://github.com/darinpope/ansible-jenkins
 - https://github.com/jenkinsci/matrix-auth-plugin/blob/master/src/test/resources/org/jenkinsci/plugins/matrixauth/integrations/casc/configuration-as-code-v3.yml
+
+## Snippets
+
+### Export current plugin name en versions
+
+```groovy
+Jenkins.instance.pluginManager.plugins.each{
+  plugin ->
+  println ("${plugin.getShortName()}:${plugin.getVersion()}")
+}
+```
