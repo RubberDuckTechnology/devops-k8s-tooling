@@ -64,6 +64,7 @@ plain-credentials:179.vc5cb_98f6db_38
 plugin-util-api:4.1.0
 prism-api:1.29.0-13
 resource-disposer:0.23
+role-strategy:717.v6a_69a_fe98974
 scm-api:690.vfc8b_54395023
 script-security:1335.vf07d9ce377a_e
 snakeyaml-api:2.2-111.vc6598e30cc65
