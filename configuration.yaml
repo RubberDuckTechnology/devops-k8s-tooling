@@ -9,7 +9,6 @@ jenkins:
           name: "authenticated"
           permissions:
           - "Overall/Read"
-          - "View/Read"
       - user:
           name: "adminzaka"
           permissions:
@@ -17,6 +16,13 @@ jenkins:
           - "Agent/Configure"
           - "Agent/Connect"
           - "Agent/Create"
+          - "Agent/Delete"
+          - "Agent/Disconnect"
+          - "Credentials/Create"
+          - "Credentials/Delete"
+          - "Credentials/ManageDomains"
+          - "Credentials/Update"
+          - "Credentials/View"
           - "Job/Build"
           - "Job/Cancel"
           - "Job/Configure"
@@ -27,7 +33,9 @@ jenkins:
           - "Job/Read"
           - "Job/Workspace"
           - "Overall/Administer"
+          - "Overall/Read"
           - "Run/Delete"
+          - "Run/Replay"
           - "Run/Update"
           - "SCM/Tag"
           - "View/Configure"
@@ -79,21 +87,8 @@ jenkins:
         - "timezone"
         - "experimentalFlags"
         - mailer:
-            emailAddress: "zaka_elbarnoussi@live.nl"
+            emailAddress: "zakaria@rubberducktech.nl"
         - "apiToken"
-      - id: "minion"
-        name: "Minion Test User"
-        properties:
-        - "apiToken"
-        - "consoleUrlProvider"
-        - "myView"
-        - preferredProvider:
-            providerId: "default"
-        - "theme"
-        - "timezone"
-        - "experimentalFlags"
-        - mailer:
-            emailAddress: "minion@jenkinstest.nl"
   slaveAgentPort: 50000
   updateCenter:
     sites:
