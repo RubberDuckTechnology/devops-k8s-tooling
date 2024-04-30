@@ -19,7 +19,7 @@ spec:
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
-          image: jcasc_jenkins:latest
+          image: jcasc_jenkins:v1.1
           imagePullPolicy: IfNotPresent
           resources:
             limits:
@@ -55,4 +55,4 @@ spec:
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:
-              claimName: jenkins-pv-claim
+              claimName: jenkins-pv-new-claim
