@@ -19,7 +19,7 @@ spec:
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
-          image: jcasc_jenkins:v1.3
+          image: jcasc_jenkins:v1.4
           imagePullPolicy: IfNotPresent
           resources:
             limits:

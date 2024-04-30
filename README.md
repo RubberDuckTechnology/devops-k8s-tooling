@@ -21,3 +21,9 @@ Jenkins.instance.pluginManager.plugins.each{
   println ("${plugin.getShortName()}:${plugin.getVersion()}")
 }
 ```
+
+### Get casc.reload.token
+
+```groovy
+println(System.getProperty("casc.reload.token"))
+```
