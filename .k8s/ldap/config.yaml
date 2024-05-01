@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: samba-config
+  namespace: devops-tools
+data:
+  smb.conf: |
+    [global]
+       workgroup = MYGROUP
+       server string = Samba Server
+       server role = active directory domain controller
+       dns forwarder = 8.8.8.8
+       idmap_ldb:use rfc2307 = yes
+
+    [netlogon]
+       path = /var/lib/samba/sysvol/mygroup.example.com/scripts
+       read only = No
+
+    [sysvol]
+       path = /var/lib/samba/sysvol
+       read only = No

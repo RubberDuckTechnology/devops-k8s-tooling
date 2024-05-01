@@ -10,7 +10,8 @@
 
 - https://github.com/darinpope/ansible-jenkins
 - https://github.com/jenkinsci/matrix-auth-plugin/blob/master/src/test/resources/org/jenkinsci/plugins/matrixauth/integrations/casc/configuration-as-code-v3.yml
-
+- https://plugins.jenkins.io/role-strategy/
+- 
 ## Snippets
 
 ### Export current plugin name en versions

@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: jenkins-pv-volume
-  labels:
-    type: local
+  name: samba-pv
+  namespace: devops-tools
 spec:
   storageClassName: local-storage
   claimRef:
-    name: jenkins-pv-claim
+    name: samba-pv-claim
     namespace: devops-tools
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   local:
@@ -27,7 +26,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jenkins-pv-claim
+  name: samba-pv-claim
   namespace: devops-tools
 spec:
   storageClassName: local-storage
@@ -35,4 +34,4 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
+      storage: 1Gi

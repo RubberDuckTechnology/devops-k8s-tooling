@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: samba-ad
+  namespace: devops-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: samba-ad
+  template:
+    metadata:
+      labels:
+        app: samba-ad
+    spec:
+      containers:
+      - name: samba-ad
+        image: yourregistry/samba-ad:latest
+        ports:
+        - containerPort: 53
+        - containerPort: 88
+        - containerPort: 135
+        - containerPort: 139
+        - containerPort: 389
+        - containerPort: 445
+        - containerPort: 464
+        - containerPort: 636
+        - containerPort: 1024
+        - containerPort: 3268
+        - containerPort: 3269
+        resources:
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+            requests:
+              memory: "500Mi"
+              cpu: "500m"
+

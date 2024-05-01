@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: samba-ad
+  namespace: devops-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: samba-ad
+  template:
+    metadata:
+      labels:
+        app: samba-ad
+    spec:
+      containers:
+      - name: samba
+        image: nowsci/samba-domain:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 389
+        volumeMounts:
+        - name: config
+          mountPath: /etc/samba/smb.conf
+          subPath: smb.conf
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+          requests:
+            memory: "500Mi"
+            cpu: "500m"
+      volumes:
+      - name: config
+        configMap:
+          name: samba-config
+      - name: data
+        persistentVolumeClaim:
+          claimName: samba-pv-claim
