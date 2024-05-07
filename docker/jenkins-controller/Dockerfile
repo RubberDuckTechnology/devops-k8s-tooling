@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:2.440.3-lts
 USER root
 
 # Copy plugin list
