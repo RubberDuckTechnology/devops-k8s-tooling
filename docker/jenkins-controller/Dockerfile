@@ -10,4 +10,7 @@ ENV CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/jenkins.yaml
 # Install specified plugins
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
+# Disable initial setup
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+
 USER jenkins
