@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openldap-deployment
+  namespace: devops-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openldap
+  template:
+    metadata:
+      labels:
+        app: openldap
+    spec:
+      containers:
+        - name: openldap
+          image: bitnami/openldap:latest
+          ports:
+            - containerPort: 1389
+              name: ldap
+            - containerPort: 1636
+              name: ldaps
+          env:
+            - name: LDAP_ROOT
+              value: dc=example,dc=org
+            - name: LDAP_CONFIG_ADMIN_ENABLED
+              value: "yes"
+            - name: LDAP_ADMIN_USERNAME
+              value: admin
+            - name: LDAP_ADMIN_PASSWORD
+              value: adminpassword
+            - name: LDAP_ADMIN_DN
+              value: cn=admin,dc=example,dc=org
+            - name: LDAP_BASE
+              value: dc=example,dc=org
+          volumeMounts:
+            - name: data
+              mountPath: /bitnami/openldap/data
+      volumes:
+        - name: data
+          emptyDir: {}

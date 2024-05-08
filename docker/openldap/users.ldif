@@ -1,0 +1,47 @@
+version: 1
+
+dn: dc=example,dc=org
+objectClass: dcObject
+objectClass: organization
+dc: example
+o: example
+
+dn: ou=users,dc=example,dc=org
+objectClass: organizationalUnit
+ou: users
+
+dn: cn=minion_user_01,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: minion_user_01
+cn: MinionUser01
+gidNumber: 1000
+homeDirectory: /home/minion_user_01
+sn: Bar1
+uid: minion_user_01
+uidNumber: 1000
+displayName: Minion 01
+mail: minion01@jenkins.nl
+userPassword:: Yml0bmFtaTE=
+
+dn: cn=minion_user_02,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: minion_user_02
+cn: MinionUser02
+gidNumber: 1001
+homeDirectory: /home/minion_user_02
+sn: Bar2
+uid: minion_user_02
+uidNumber: 1001
+mail: minion2@jenkins.com
+userPassword:: Yml0bmFtaTI=
+
+dn: cn=readers,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: readers
+member: cn=user01,ou=users,dc=example,dc=org
+member: cn=user02,ou=users,dc=example,dc=org
+

@@ -29,29 +29,6 @@ jenkins:
         - "Job/Workspace"
         - "View/Read"
         - "View/Configure"
-      - name: "group-to-node-template"
-        permissions:
-        - "Job/Move"
-        - "Job/Build"
-        - "SCM/Tag"
-        - "Credentials/Delete"
-        - "Job/Create"
-        - "Credentials/ManageDomains"
-        - "View/Create"
-        - "Job/Discover"
-        - "Job/Read"
-        - "Credentials/View"
-        - "Credentials/Update"
-        - "Run/Replay"
-        - "Run/Delete"
-        - "Job/Cancel"
-        - "Run/Update"
-        - "Job/Delete"
-        - "Credentials/Create"
-        - "Job/Configure"
-        - "Job/Workspace"
-        - "View/Read"
-        - "View/Configure"
       roles:
         global:
         - entries:
@@ -130,6 +107,8 @@ jenkins:
   disableRememberMe: false
   labelAtoms:
   - name: "built-in"
+  - name: "ubuntu-22.04"
+  - name: "ubuntu-22.04-88e853"
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
@@ -144,6 +123,22 @@ jenkins:
       freeSpaceThreshold: "1GiB"
       freeSpaceWarningThreshold: "2GiB"
   - "responseTime"
+  nodes:
+  - permanent:
+      labelString: "ubuntu-22.04"
+      launcher:
+        inbound:
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
+      name: "ubuntu-22.04-88e853"
+      remoteFS: "/home/jenkins"
+      retentionStrategy:
+        demand:
+          idleDelay: 10
+          inDemandDelay: 0
   numExecutors: 2
   primaryView:
     all:
@@ -154,49 +149,20 @@ jenkins:
     enabled: true
   scmCheckoutRetryCount: 0
   securityRealm:
-    local:
-      allowsSignup: false
-      enableCaptcha: false
-      users:
-      - id: "adminzaka"
-        name: "Zakaria el Barnoussi"
-        properties:
-        - "consoleUrlProvider"
-        - "myView"
-        - preferredProvider:
-            providerId: "default"
-        - "theme"
-        - "timezone"
-        - "experimentalFlags"
-        - mailer:
-            emailAddress: "zakaria@rubberducktech.nl"
-        - "apiToken"
-      - id: "alpha-user"
-        name: "Alpha Test User"
-        properties:
-        - "apiToken"
-        - "consoleUrlProvider"
-        - "myView"
-        - preferredProvider:
-            providerId: "default"
-        - "theme"
-        - "timezone"
-        - "experimentalFlags"
-        - mailer:
-            emailAddress: "alpha@jenkinstest.nl"
-      - id: "minion-user"
-        name: "Minion Test User"
-        properties:
-        - "apiToken"
-        - "consoleUrlProvider"
-        - "myView"
-        - preferredProvider:
-            providerId: "default"
-        - "theme"
-        - "timezone"
-        - "experimentalFlags"
-        - mailer:
-            emailAddress: "minion@jenkinstest.nl"
+    ldap:
+      configurations:
+      - groupMembershipStrategy:
+          fromUserRecord:
+            attributeName: "memberOf"
+        inhibitInferRootDN: false
+        managerPasswordSecret: "{AQAAABAAAAAQz1k8c2xf83hogWM3HV9Cjh9G7Bo8PbPS7CiKE5Ve7bw=}"
+        rootDN: "dc=example,dc=org"
+        server: "openldap-service:1389"
+        userSearchBase: "ou=users"
+      disableMailAddressResolver: false
+      disableRolePrefixing: true
+      groupIdStrategy: "caseInsensitive"
+      userIdStrategy: "caseInsensitive"
   slaveAgentPort: 50000
   updateCenter:
     sites:
