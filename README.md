@@ -27,3 +27,9 @@ Jenkins.instance.pluginManager.plugins.each{
 ```groovy
 println(System.getProperty("casc.reload.token"))
 ```
+
+### Reset Jenkins security settings
+
+```bash
+sed -i 's/<useSecurity>true<\/useSecurity>/<useSecurity>false<\/useSecurity>/g' /var/jenkins_home/config.xml 
+```

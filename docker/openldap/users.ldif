@@ -1,14 +1,56 @@
 version: 1
 
-dn: dc=example,dc=org
-objectClass: dcObject
-objectClass: organization
-dc: example
-o: example
-
 dn: ou=users,dc=example,dc=org
 objectClass: organizationalUnit
 ou: users
+
+dn: cn=cyphers,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: cyphers
+member: cn=cypher_user_01,ou=users,dc=example,dc=org
+member: cn=cypher_user_02,ou=users,dc=example,dc=org
+
+dn: cn=minions,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: minions
+member: cn=minion_user_01,ou=users,dc=example,dc=org
+member: cn=minion_user_02,ou=users,dc=example,dc=org
+
+dn: cn=readers,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: readers
+member: cn=minion_user_01,ou=users,dc=example,dc=org
+member: cn=minion_user_02,ou=users,dc=example,dc=org
+
+dn: cn=cypher_user_01,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: cypher_user_01
+cn: CypherUser01
+gidNumber: 1000
+homeDirectory: /home/cypher_user_01
+sn: Bar1
+uid: cypher_user_01
+uidNumber: 1000
+displayName: Cypher 01
+mail: Cypher01@jenkins.nl
+userPassword:: Yml0bmFtaTE=
+
+dn: cn=cypher_user_02,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: cypher_user_02
+cn: CypherUser02
+gidNumber: 1000
+homeDirectory: /home/cypher_user_02
+sn: Bar1
+uid: cypher_user_02
+uidNumber: 1000
+displayName: Cypher 02
+mail: Cypher02@jenkins.nl
+userPassword:: Yml0bmFtaTE=
 
 dn: cn=minion_user_01,ou=users,dc=example,dc=org
 objectClass: inetOrgPerson
@@ -38,10 +80,4 @@ uid: minion_user_02
 uidNumber: 1001
 mail: minion2@jenkins.com
 userPassword:: Yml0bmFtaTI=
-
-dn: cn=readers,ou=users,dc=example,dc=org
-objectClass: groupOfNames
-cn: readers
-member: cn=user01,ou=users,dc=example,dc=org
-member: cn=user02,ou=users,dc=example,dc=org
 
