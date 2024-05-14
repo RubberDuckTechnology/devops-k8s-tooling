@@ -3,16 +3,58 @@ jenkins:
   - "JNLP4-connect"
   - "Ping"
   authorizationStrategy:
-    projectMatrix:
-      entries:
-      - group:
-          name: "authenticated"
-          permissions:
-          - "Overall/Read"
-      - user:
-          name: "minion_user_01"
+    roleBased:
+      permissionTemplates:
+      - name: "team-folder"
+        permissions:
+        - "Job/Move"
+        - "Job/Build"
+        - "SCM/Tag"
+        - "Credentials/Delete"
+        - "Job/Create"
+        - "Credentials/ManageDomains"
+        - "View/Create"
+        - "Job/Discover"
+        - "Job/Read"
+        - "Credentials/View"
+        - "Credentials/Update"
+        - "Run/Replay"
+        - "Run/Delete"
+        - "Job/Cancel"
+        - "Run/Update"
+        - "Job/Delete"
+        - "Credentials/Create"
+        - "View/Delete"
+        - "Job/Configure"
+        - "Job/Workspace"
+        - "View/Read"
+        - "View/Configure"
+      roles:
+        global:
+        - entries:
+          - group: "admins"
+          name: "admin"
+          pattern: ".*"
           permissions:
           - "Overall/Administer"
+        - entries:
+          - group: "cyphers"
+          - group: "minions"
+          name: "developers"
+          pattern: ".*"
+          permissions:
+          - "Overall/Read"
+        items:
+        - entries:
+          - group: "cyphers"
+          name: "cyphers-team-folder"
+          pattern: "(?i)cyphers($|/.*)"
+          templateName: "team-folder"
+        - entries:
+          - group: "minions"
+          name: "minions-team-folder"
+          pattern: "(?i)minions($|/.*)"
+          templateName: "team-folder"
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: false
@@ -64,10 +106,9 @@ jenkins:
     ldap:
       configurations:
       - inhibitInferRootDN: false
-        managerPasswordSecret: "{AQAAABAAAAAQLfZm2ItrXqXgmet7+3xqLKH5cJLPgkEHjq1TOP6lsuk=}"
+        managerPasswordSecret: "{AQAAABAAAAAQkdJGASHBc5szQFjhdPKJvHPEGa0GfB4ytzzF8MCQndU=}"
         rootDN: "dc=example,dc=org"
         server: "openldap-service:1389"
-        userSearchBase: "ou=users"
       disableMailAddressResolver: false
       disableRolePrefixing: true
       groupIdStrategy: "caseInsensitive"
