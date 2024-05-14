@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-ssh-deployment
+  namespace: devops-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-agent-ssh
+  template:
+    metadata:
+      labels:
+        app: jenkins-agent-ssh
+    spec:
+      containers:
+      - name: ubuntu-container
+        image: jenkins/ssh-agent:jdk11
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: ssh
+            containerPort: 22
+        env:
+          - name: TZ
+            value: Europe/Amsterdam
+          - name: JENKINS_AGENT_SSH_PUBKEY
+            value: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDG93HC0tvEzzFFNGQo6eTUECcjHiw42xfTHcDd0OFIXE426Ez+UT1Q8eKxxYJqqhSJV2JGky3txEhP3CCR5/aJAJ6ZmtU46tnNVkQOTxVOTQDP5mcBX6K7TGaMRnN6bL/atWgKbTwv5G5UULr8NFfjESiTplfFrzYHi93BW3ucD/UrQeFhAj0YynUXPqqQR8O1F2FVhixplwvR7PwJiQokRFvuk5JfE3AV+MjVhlNJXGM+hvnNiRnLLCAQTsTmtRDGPCvNwGufhFoHzQBTvGbiWa/V1tH45DUZvxUx11VezsYmV2fm9zcMPYR7W/5HJwOCYwZvgaOibSdA105nY7m38sPwKgP8JxKWumDWr6+XOEVN9GYsEMKfrwLE2kVoK3l211eH6Uw3nEAUX/d49TjkxkqafAkzXQXYcVZMnRM3X/SK26iMLH7yNXSojhtLJNjUYwrR8a83Hnn2J/JYOC1HFz8TkCEhWYLBmFfqnevAfNDyqSIxrTXuUpcUHvamlQM= root@agent-ssh-deployment-564f756ccc-m8x29"

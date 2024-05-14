@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ssh-service
+  namespace: devops-tools
+spec:
+  selector:
+    app: jenkins-agent-ssh
+  ports:
+  - protocol: TCP
+    port: 22
+    targetPort: 22

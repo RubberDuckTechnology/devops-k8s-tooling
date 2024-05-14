@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ubuntu-deployment
+  name: agent-connectto-deployment
   namespace: devops-tools
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ubuntu-pod
+      app: jenkins-agent-connectto
   template:
     metadata:
       labels:
-        app: ubuntu-pod
+        app: jenkins-agent-connectto
     spec:
       containers:
       - name: ubuntu-container
-        image: jenkins_agent/bullseye-lts:latest
+        image: devops-tools/jenkins-connect:v1.4
         imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 22
