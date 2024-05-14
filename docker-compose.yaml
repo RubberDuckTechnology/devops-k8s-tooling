@@ -1,0 +1,15 @@
+services:
+  openldap:
+    build:
+      context: ./docker/openldap
+    image: devops-tools/openldap:v1.0.1
+
+  jenkins-controller:
+    build:
+      context: ./docker/jenkins-controller
+    image: devops-tools/jenkins-controller:v2.0.0
+
+  jenkins-ssh-agent:
+    build:
+      context: ./docker/jenkins-agents/ssh
+    image: devops-tools/jenkins-agent-ssh:v1.0.0

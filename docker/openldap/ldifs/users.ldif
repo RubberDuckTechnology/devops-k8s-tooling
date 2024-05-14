@@ -10,6 +10,38 @@ dn: ou=users,dc=example,dc=org
 objectClass: organizationalUnit
 ou: users
 
+dn: cn=user01,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: user01
+cn: User1
+gidNumber: 1000
+homeDirectory: /home/user01
+sn: Bar1
+uid: user01
+uidNumber: 1000
+userPassword:: Yml0bmFtaTE=
+
+dn: cn=user02,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: user02
+cn: User2
+gidNumber: 1001
+homeDirectory: /home/user02
+sn: Bar2
+uid: user02
+uidNumber: 1001
+userPassword:: Yml0bmFtaTI=
+
+dn: cn=readers,ou=users,dc=example,dc=org
+objectClass: groupOfNames
+cn: readers
+member: cn=minion_user_01,ou=users,dc=example,dc=org
+member: cn=minion_user_02,ou=users,dc=example,dc=org
+
 dn: cn=minion_user_01,ou=users,dc=example,dc=org
 objectClass: inetOrgPerson
 objectClass: posixAccount
@@ -38,12 +70,6 @@ uid: minion_user_02
 uidNumber: 1001
 mail: minion2@jenkins.com
 userPassword:: Yml0bmFtaTI=
-
-dn: cn=readers,ou=users,dc=example,dc=org
-objectClass: groupOfNames
-cn: readers
-member: cn=minion_user_01,ou=users,dc=example,dc=org
-member: cn=minion_user_02,ou=users,dc=example,dc=org
 
 dn: cn=cypher_user_01,ou=users,dc=example,dc=org
 objectClass: inetOrgPerson
@@ -87,7 +113,7 @@ displayName: Cypher 02
 mail: Cypher02@jenkins.nl
 userPassword:: Yml0bmFtaTE=
 
-dn: cn=admin_01,ou=admins,dc=example,dc=org
+dn: cn=admin_01,ou=users,dc=example,dc=org
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
@@ -102,13 +128,8 @@ displayName: Admin01
 mail: admin01@jenkins.nl
 userPassword:: Yml0bmFtaTE=
 
-dn: cn=admins,ou=admins,dc=example,dc=org
+dn: cn=admins,ou=users,dc=example,dc=org
 objectClass: groupOfNames
 cn: admins
-member: cn=minion_user_01,ou=users,dc=example,dc=org
-member: cn=minion_user_02,ou=users,dc=example,dc=org
-
-dn: ou=admins,dc=example,dc=org
-objectClass: organizationalUnit
-ou: admins
+member: cn=admin_01,ou=users,dc=example,dc=org
 
