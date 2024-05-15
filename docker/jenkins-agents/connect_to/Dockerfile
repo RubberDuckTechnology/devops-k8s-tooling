@@ -9,5 +9,5 @@ USER jenkins
 WORKDIR /home/jenkins
 
 # Start the Jenkins  agent
-COPY docker/jenkins-agent/agent.jar /home/jenkins/agent.jar
-CMD ["java", "-jar", "agent.jar", "-connectTo", "jenkins-service:8080", "-secret", "89467600f29d07d6ff5a6b88c7f98c1e80f5da4080cf8ddb37f76e2d32c7c515", "-name", "buildhost_minions_ubuntu", "-workDir", "/home/jenkins"]
+COPY agent.jar /home/jenkins/agent.jar
+CMD ["java", "-jar", "agent.jar", "-url", "http://jenkins-service:8080/", "-secret", "be474ed015945f2c4c6da309499b525973134924611d6bb5479726fa9ce079fd", "-name", "buildhost_cyphers_ubuntu", "-workDir", "/home/jenkins"]

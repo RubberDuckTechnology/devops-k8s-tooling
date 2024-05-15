@@ -13,3 +13,8 @@ services:
     build:
       context: ./docker/jenkins-agents/ssh
     image: devops-tools/jenkins-agent-ssh:v1.0.0
+
+  jenkins-connectto-agent:
+    build:
+      context: ./docker/jenkins-agents/connect_to
+    image: devops-tools/jenkins-agent-connectto:v1.0.0

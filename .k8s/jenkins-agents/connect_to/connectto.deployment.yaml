@@ -15,5 +15,5 @@ spec:
     spec:
       containers:
       - name: ubuntu-container
-        image: devops-tools/jenkins-connect:v1.4
+        image: devops-tools/jenkins-agent-connectto:v1.0.0
         imagePullPolicy: IfNotPresent
