@@ -25,3 +25,10 @@ spec:
             value: Europe/Amsterdam
           - name: JENKINS_AGENT_SSH_PUBKEY
             value: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC5Edfwwu7G/HH+oRKTyb/UCPdkNxc+craQ4gygh3Vjtm47gWJ/hwJn8qv1IuyIcOR2zIJBOYKUW35pLKk1zwh2EUL80+5L3Mb1SLSziC/STzS73wss6J5ZjGuZVpwqbyrrrq7FIsXWZ0twFGALAn3a0rZD9smR8/CVop7MibhUIeA6dsfzkvfv2o7U0vzMgmYkDgQJRLnD4nlk6UGL/+HrexzZktWK77FE7nmmE4q0Ejh+Jt3dJwIAffQy7WU2L7EB/eoT1lwGW+/hqbqeqbyNJpZyjqDHSXSgYfHQuXktHZqJeHgykQJWrV7lHP4+fR3R7Oz0/a1C2B6c4vruy9hM59skVq1k+jBUN1lnsqzwmh/OIOy6h1nXvPnutkKLbs7WZot3a24+6q5bsG+VaCKk5EdmFOiQZfaE1vnabk35Ny7lHd4e5nQPrUYLn6/jiYIFi8gNPENE+1OiysLICwXRJ1L4Wd+w/eHviXcIXoAL3pzVZh3jpFcIHN/7VXjqaPE= jenkins@jenkins-8cbdbb57d-l9tr7"
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+          requests:
+            memory: "500Mi"
+            cpu: "500m"

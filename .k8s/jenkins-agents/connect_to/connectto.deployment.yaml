@@ -17,3 +17,10 @@ spec:
       - name: ubuntu-container
         image: devops-tools/jenkins-agent-connectto:v1.0.0
         imagePullPolicy: IfNotPresent
+        resources:
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+            requests:
+              memory: "500Mi"
+              cpu: "500m"
