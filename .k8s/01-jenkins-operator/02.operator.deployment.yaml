@@ -255,7 +255,7 @@ spec:
               protocol: TCP
           command:
             - /manager
-          args:
+          args: []
           livenessProbe:
             httpGet:
               path: /healthz
