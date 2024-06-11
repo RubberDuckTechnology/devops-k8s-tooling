@@ -3,12 +3,14 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: jenkins-operator
+  namespace: devops-tools
 ---
 # permissions to do leader election.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: leader-election-role
+  namespace: devops-tools
 rules:
 - apiGroups:
   - ""
@@ -36,6 +38,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: jenkins-operator
+  namespace: devops-tools
 rules:
   - apiGroups:
       - apps
@@ -206,6 +209,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: leader-election-rolebinding
+  namespace: devops-tools
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -218,6 +222,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: jenkins-operator
+  namespace: devops-tools
 subjects:
   - kind: ServiceAccount
     name: jenkins-operator
@@ -230,6 +235,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins-operator
+  namespace: devops-tools
   labels:
     app.kubernetes.io/name: jenkins-operator
     helm.sh/chart: jenkins-operator-0.8.0-beta.2
