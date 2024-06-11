@@ -5,7 +5,8 @@ metadata:
   namespace: devops-tools
 spec:
   configurationAsCode:
-    configurations: []
+    configurations: 
+      - name: jenkins-controller-config
     secret:
       name: ""
   groovyScripts:
@@ -57,7 +58,7 @@ spec:
     - name: git
       version: "5.2.1"
     - name: job-dsl
-      version: "1.78.1"
+      version: "1.87"
     - name: configuration-as-code
       version: "1775.v810dc950b_514"
     - name: kubernetes-credentials-provider

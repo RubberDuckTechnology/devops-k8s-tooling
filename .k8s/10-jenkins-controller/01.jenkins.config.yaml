@@ -1,0 +1,243 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-controller-config
+  namespace: devops-tools
+data:
+  1-credentials.yaml: |
+    credentials:
+      system:
+        domainCredentials:
+        - credentials:
+          - file:
+              description: "ssh_agent_01_priv_keu"
+              fileName: "priv_key.txt"
+              id: "ssh_agent_01_priv_keu"
+              scope: SYSTEM
+              secretBytes: "{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}"
+          - basicSSHUserPrivateKey:
+              description: "ssh-agent-credentials"
+              id: "ssh-agent-credentials"
+              privateKeySource:
+                directEntry:
+                  privateKey: "{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}"
+              scope: SYSTEM
+              username: "jenkins"
+  2-jenkins-config.yaml: |
+    jenkins:
+      agentProtocols:
+      - "JNLP4-connect"
+      - "Ping"
+      authorizationStrategy:
+        roleBased:
+          permissionTemplates:
+          - name: "team-folder"
+            permissions:
+            - "Job/Move"
+            - "Job/Build"
+            - "SCM/Tag"
+            - "Credentials/Delete"
+            - "Job/Create"
+            - "Credentials/ManageDomains"
+            - "View/Create"
+            - "Job/Discover"
+            - "Job/Read"
+            - "Credentials/View"
+            - "Credentials/Update"
+            - "Run/Replay"
+            - "Run/Delete"
+            - "Job/Cancel"
+            - "Run/Update"
+            - "Job/Delete"
+            - "Credentials/Create"
+            - "View/Delete"
+            - "Job/Configure"
+            - "Job/Workspace"
+            - "View/Read"
+            - "View/Configure"
+          roles:
+            global:
+            - entries:
+              - group: "admins"
+              name: "admin"
+              pattern: ".*"
+              permissions:
+              - "Overall/Administer"
+            - entries:
+              - group: "cyphers"
+              - group: "minions"
+              name: "developers"
+              pattern: ".*"
+              permissions:
+              - "Overall/Read"
+            items:
+            - entries:
+              - group: "cyphers"
+              name: "cyphers-team-folder"
+              pattern: "(?i)cyphers($|/.*)"
+              templateName: "team-folder"
+            - entries:
+              - group: "minions"
+              name: "minions-team-folder"
+              pattern: "(?i)minions($|/.*)"
+              templateName: "team-folder"
+      crumbIssuer:
+        standard:
+          excludeClientIPFromCrumb: false
+      disableRememberMe: false
+      disabledAdministrativeMonitors:
+      - "hudson.util.DoubleLaunchChecker"
+      labelAtoms:
+      - name: "buildhost_minions_ubuntu"
+      - name: "built-in"
+      - name: "minions_only"
+      markupFormatter: "plainText"
+      mode: NORMAL
+      myViewsTabBar: "standard"
+      nodeMonitors:
+      - "architecture"
+      - "clock"
+      - diskSpace:
+          freeSpaceThreshold: "1GiB"
+          freeSpaceWarningThreshold: "2GiB"
+      - "swapSpace"
+      - tmpSpace:
+          freeSpaceThreshold: "1GiB"
+          freeSpaceWarningThreshold: "2GiB"
+      - "responseTime"
+      nodes:
+      - permanent:
+          labelString: "minions_only"
+          launcher:
+            ssh:
+              credentialsId: "ssh-agent-credentials"
+              host: "ssh-service"
+              port: 22
+              sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+          name: "buildhost_minions_ubuntu"
+          nodeProperties:
+          - jobRestrictionProperty:
+              jobRestriction:
+                regexNameRestriction:
+                  checkShortName: false
+                  regexExpression: "^minions/.*"
+          remoteFS: "/home/jenkins"
+          retentionStrategy: "always"
+      numExecutors: 2
+      primaryView:
+        all:
+          name: "all"
+      projectNamingStrategy: "standard"
+      quietPeriod: 5
+      remotingSecurity:
+        enabled: true
+      scmCheckoutRetryCount: 0
+      securityRealm:
+        ldap:
+          configurations:
+          - inhibitInferRootDN: false
+            managerPasswordSecret: "{AQAAABAAAAAQkdJGASHBc5szQFjhdPKJvHPEGa0GfB4ytzzF8MCQndU=}"
+            rootDN: "dc=example,dc=org"
+            server: "openldap-service:1389"
+          disableMailAddressResolver: false
+          disableRolePrefixing: true
+          groupIdStrategy: "caseInsensitive"
+          userIdStrategy: "caseInsensitive"
+      slaveAgentPort: 50000
+      updateCenter:
+        sites:
+        - id: "default"
+          url: "https://updates.jenkins.io/update-center.json"
+      views:
+      - all:
+          name: "all"
+      viewsTabBar: "standard"
+  3-global-creds.yaml: |
+    globalCredentialsConfiguration:
+      configuration:
+        providerFilter: "none"
+        typeFilter: "none"
+  4-appearance-yaml: |
+    appearance:
+      prism:
+        theme: PRISM
+      themeManager:
+        disableUserThemes: false
+    security:
+      apiToken:
+        creationOfLegacyTokenEnabled: false
+        tokenGenerationOnCreationEnabled: false
+        usageStatisticsEnabled: true
+      gitHooks:
+        allowedOnAgents: false
+        allowedOnController: false
+      gitHostKeyVerificationConfiguration:
+        sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
+      sSHD:
+        port: -1
+  5-other.yaml: |
+    unclassified:
+      buildDiscarders:
+        configuredBuildDiscarders:
+        - "jobBuildDiscarder"
+      buildStepOperation:
+        enabled: false
+      email-ext:
+        adminRequiredForTemplateTesting: false
+        allowUnregisteredEnabled: false
+        charset: "UTF-8"
+        debugMode: false
+        defaultBody: |-
+          $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+          Check console output at $BUILD_URL to view the results.
+        defaultContentType: "text/plain"
+        defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+        defaultTriggerIds:
+        - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
+        maxAttachmentSize: -1
+        maxAttachmentSizeMb: -1
+        precedenceBulk: false
+        watchingEnabled: false
+      fingerprints:
+        fingerprintCleanupDisabled: false
+        storage: "file"
+      gitHubConfiguration:
+        apiRateLimitChecker: ThrottleForNormalize
+      gitHubPluginConfig:
+        hookUrl: "http://localhost:32000/github-webhook/"
+      globalTimeOutConfiguration:
+        operations:
+        - "abortOperation"
+        overwriteable: false
+      junitTestResultStorage:
+        storage: "file"
+      location:
+        adminAddress: "address not configured yet <nobody@nowhere>"
+        url: "http://jenkins-service:32000/"
+      mailer:
+        charset: "UTF-8"
+        useSsl: false
+        useTls: false
+      pollSCM:
+        pollingThreadCount: 10
+      scmGit:
+        addGitTagAction: false
+        allowSecondFetch: false
+        createAccountBasedOnEmail: false
+        disableGitToolChooser: false
+        hideCredentials: false
+        showEntireCommitSummaryInChanges: false
+        useExistingAccountWithSameEmail: false
+      timestamper:
+        allPipelines: false
+        elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+        systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+    tool:
+      git:
+        installations:
+        - home: "git"
+          name: "Default"
+      mavenGlobalConfig:
+        globalSettingsProvider: "standard"
+        settingsProvider: "standard"

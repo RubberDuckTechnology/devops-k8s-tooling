@@ -14,6 +14,15 @@
 
 ## Snippets
 
+## Starting Jenkins (Operator)
+
+```sh
+./scripts/start.sh
+kubectl get secret jenkins-operator-credentials-jenkins-master -n devops-tools -o 'jsonpath={.data.user}' | base64 -d
+kubectl get secret jenkins-operator-credentials-jenkins-master -n devops-tools -o 'jsonpath={.data.password}' | base64 -d
+kubectl port-forward jenkins-jenkins-master -n devops-tools 8080:8080
+```
+
 ### Export current plugin name en versions
 
 ```groovy
