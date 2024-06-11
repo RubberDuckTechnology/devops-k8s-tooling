@@ -1,7 +1,7 @@
 apiVersion: jenkins.io/v1alpha2
 kind: Jenkins
 metadata:
-  name: jenkins-server
+  name: jenkins-master
   namespace: devops-tools
 spec:
   configurationAsCode:
@@ -17,7 +17,7 @@ spec:
   master:
     disableCSRFProtection: false
     containers:
-      - name: jenkins-server
+      - name: jenkins-master
         image: jenkins/jenkins:2.452.1-lts
         imagePullPolicy: Always
         livenessProbe:

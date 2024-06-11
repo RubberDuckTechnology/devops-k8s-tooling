@@ -10,7 +10,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: jenkins-server
+    app: jenkins-master
   ports:
     - name: http
       port: 8080
