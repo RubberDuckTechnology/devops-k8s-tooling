@@ -50,19 +50,19 @@ spec:
             memory: 500Mi
     basePlugins:
     - name: kubernetes
-      version: "1.30.11"
+      version: "4245.vf5b_83f1fee6e"
     - name: workflow-job
       version: "1400.v7fd111b_ec82f"
     - name: workflow-aggregator
       version: "596.v8c21c963d92d"
     - name: git
-      version: "5.2.1"
+      version: "5.2.2"
     - name: job-dsl
       version: "1.87"
     - name: configuration-as-code
-      version: "1775.v810dc950b_514"
+      version: "1810.v9b_c30a_249a_4c"
     - name: kubernetes-credentials-provider
-      version: "0.20"
+      version: "1.262.v2670ef7ea_0c5"
   seedJobs:
     - id: jenkins-operator
       targets: "cicd/jobs/*.jenkins"
